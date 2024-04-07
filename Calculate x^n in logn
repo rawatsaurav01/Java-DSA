@@ -1,0 +1,35 @@
+/*
+(x^n) using log n time complexity ;
+*/
+
+class practice{
+
+    public static int calcPower(int x,int power){
+        if(power==0){
+            return 1;
+        }
+        if(x==0){
+            return 0;
+        }
+
+        if(power%2==0){
+            return calcPower(x,power/2)*calcPower(x,power/2);
+        }
+
+        else{
+            return calcPower(x,power/2)*calcPower(x,power/2)*x;
+        }
+
+    }
+   
+
+
+
+    public static void main (String args[]){
+        int x=2;
+        int power=5;
+
+        int result=calcPower(x,power);
+        System.out.println(result);
+    }
+}
