@@ -1,0 +1,31 @@
+// Tower Of Hanoi 
+// Time Complexity : O(2^n)
+
+class practice{
+
+    
+        public static void towerofhanoi(int n , String source, String helper,String destination ){
+
+            if(n==1){
+                System.out.println("Transfer disk from "+source+"--->"+destination);
+                return;
+            }
+
+            //Step 1 : Transfer n-1 disks from source to helper ;
+            towerofhanoi(n-1,source,destination,helper);
+
+            //Step2 :Transfer the 1 disk left in source
+             System.out.println("Transfer disk from "+source+"--->"+destination);
+
+             //Step 3 : Transfer (n-1)disks from helper to destination using source as a helper
+             towerofhanoi(n-1,helper,source,destination);
+
+        }
+
+      public static void main (String args[]){
+        int n=10;
+
+        towerofhanoi(n,"S","H","D");
+        
+    }
+}
