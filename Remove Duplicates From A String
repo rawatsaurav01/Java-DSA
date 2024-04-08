@@ -1,0 +1,55 @@
+/*
+
+Question : Remove Duplicates from a string.
+
+Time Complexity : O(n)
+
+````````````````````
+Logic :
+'a'-'a'=0;
+'b'-'a'=1;
+'c'-'a'=2;
+............
+............
+'z'-'a'=25;
+
+`````````````````````
+
+*/
+
+
+
+class practice{
+
+    //By Default the values of map array will be false.
+    public static boolean map[]=new boolean[26];
+    public static void removeDuplicates(String str,int index, String newString){
+        
+
+        if(index==str.length()){
+            System.out.println(newString);
+            return;
+        }
+        //this line should be after the base case otherwise it will throw index out of bound error
+        currentChar=str.charAt(index);
+
+        if(map[currentChar-'a']){
+            removeDuplicates(str,index+1,newString);
+        }
+        else{
+            newString+=currentChar;
+            map[currentChar-'a']=true;
+            removeDuplicates(str,index+1,newString);    
+        }
+    }
+
+
+
+
+    public static void main (String args[]){
+       String str="abbaaccddaae";
+       removeDuplicates(str,0,"");
+     
+       
+    }
+}
