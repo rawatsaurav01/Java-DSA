@@ -1,0 +1,37 @@
+/*
+
+Question : Check if an array is sorted (Strictly Increasing)
+Time Complexity : O(n)
+
+*Strictly increasing means : if two values of array are equal then also it will not fall under this category
+*/
+
+
+
+class practice{
+
+
+    public static boolean isStrictlyIncreasing(int arr[],int i){
+        if(i==arr.length-1){
+            //if we will not use -1 the array index out of bound exception will come
+            return true;
+        }
+        
+        if(arr[i]>=arr[i+1]){
+            //array is unsorted 
+            return false;
+            
+        }
+        return isStrictlyIncreasing(arr,i+1);
+       
+    }
+
+
+
+    public static void main (String args[]){
+       int arr[]={1,2,2,3,4,5,6};
+       boolean result=isStrictlyIncreasing(arr,0);
+       System.out.println(result);
+       
+    }
+}
